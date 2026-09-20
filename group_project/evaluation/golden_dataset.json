@@ -1,0 +1,102 @@
+[
+  {
+    "question": "Khối lượng học tập tối thiểu theo Khung trình độ quốc gia Việt Nam đối với chương trình đào tạo đại học, thạc sĩ và tiến sĩ là bao nhiêu tín chỉ?",
+    "expected_answer": "Theo Điều 8 Thông tư 54/2026/TT-BGDĐT, khối lượng học tập tối thiểu quy định: trình độ đại học (bậc 6) là 120 tín chỉ; chương trình đào tạo chuyên sâu bậc 7 là từ 150 tín chỉ trở lên; trình độ thạc sĩ là từ 45 tín chỉ trở lên; trình độ tiến sĩ là 90 tín chỉ.",
+    "expected_context": "Điều 8 Thông tư 54/2026/TT-BGDĐT quy định Khối lượng học tập tối thiểu: Chương trình đào tạo trình độ đại học và bậc 6: 120 tín chỉ; Chương trình đào tạo chuyên sâu bậc 7: 150 tín chỉ trở lên; Chương trình đào tạo trình độ thạc sĩ: 45 tín chỉ trở lên; Chương trình đào tạo trình độ tiến sĩ: 90 tín chỉ."
+  },
+  {
+    "question": "Một tín chỉ được tính tương đương với bao nhiêu giờ học tập của người học theo Thông tư 54/2026?",
+    "expected_answer": "Theo khoản 4 Điều 2 Thông tư 54/2026/TT-BGDĐT, một tín chỉ tương đương từ 45 đến 50 giờ học tập (đơn vị 60 phút), bao gồm giờ học trực tiếp, trực tuyến, thực hành, thí nghiệm, thực tập, tự học có hướng dẫn và kiểm tra đánh giá. Đối với giảng dạy trực tiếp theo lớp, 1 tín chỉ yêu cầu tối thiểu 15 giờ giảng dạy lý thuyết hoặc 30 giờ thực hành, thảo luận (mỗi giờ học trên lớp là 50 phút).",
+    "expected_context": "Khoản 4 Điều 2 Thông tư 54/2026/TT-BGDĐT: Một (01) tín chỉ tương đương từ 45 đến 50 giờ học tập của người học được tính theo đơn vị 60 phút... Đối với hoạt động giảng dạy trực tiếp theo lớp học, một (01) tín chỉ yêu cầu tối thiểu 15 giờ giảng dạy trực tiếp hoặc 30 giờ thực hành, thí nghiệm, thảo luận, trong đó, một (01) giờ giảng dạy trực tiếp trên lớp được thực hiện trong thời lượng 50 phút."
+  },
+  {
+    "question": "Chuẩn đầu ra của chương trình đào tạo trình độ đại học theo Thông tư 54/2026 bắt buộc phải có những yêu cầu về năng lực nào?",
+    "expected_answer": "Theo điểm a khoản 2 Điều 7 Thông tư 54/2026/TT-BGDĐT, chuẩn đầu ra trình độ đại học bắt buộc phải có yêu cầu về năng lực số, nội dung về trí tuệ nhân tạo (AI), năng lực ngoại ngữ, khả năng thích ứng và học tập suốt đời.",
+    "expected_context": "Điểm a khoản 2 Điều 7 Thông tư 54/2026/TT-BGDĐT: Đối với trình độ đại học phải có yêu cầu về năng lực số, nội dung về trí tuệ nhân tạo (AI), năng lực ngoại ngữ, khả năng thích ứng và học tập suốt đời."
+  },
+  {
+    "question": "Thời gian đào tạo tối thiểu và thời gian đào tạo tối đa để hoàn thành chương trình đại học được quy định thế nào theo Thông tư 56/2026?",
+    "expected_answer": "Theo khoản 3 Điều 3 Thông tư 56/2026/TT-BGDĐT, thời gian đào tạo tối thiểu để hoàn thành chương trình đào tạo không ít hơn hai phần ba (2/3) thời gian đào tạo chuẩn, và thời gian đào tạo tối đa không vượt quá 2,0 lần thời gian đào tạo chuẩn.",
+    "expected_context": "Khoản 3 Điều 3 Thông tư 56/2026/TT-BGDĐT: Thời gian đào tạo tối thiểu để hoàn thành chương trình đào tạo không ít hơn hai phần ba (2/3) thời gian đào tạo chuẩn của chương trình đào tạo, và thời gian đào tạo tối đa không vượt quá 2,0 lần thời gian đào tạo chuẩn của chương trình đào tạo."
+  },
+  {
+    "question": "Sinh viên học theo phương thức tín chỉ bị cảnh báo học tập trong những trường hợp nào theo Thông tư 56/2026?",
+    "expected_answer": "Theo khoản 1 Điều 14 Thông tư 56/2026/TT-BGDĐT, sinh viên bị cảnh báo học tập khi: tổng số tín chỉ không đạt trong học kỳ vượt quá 50% khối lượng đăng ký hoặc nợ đọng từ đầu khóa vượt quá 24 tín chỉ; điểm trung bình học kỳ dưới 0.80 (học kỳ đầu) hoặc dưới 1.00 (các kỳ tiếp theo); điểm trung bình tích lũy dưới 1.20 (năm thứ nhất), dưới 1.40 (năm thứ hai), dưới 1.60 (năm thứ ba), dưới 1.80 (các năm tiếp theo).",
+    "expected_context": "Khoản 1 Điều 14 Thông tư 56/2026/TT-BGDĐT quy định điều kiện cảnh báo học tập: tổng số tín chỉ không đạt vượt quá 50% khối lượng đăng ký hoặc nợ đọng vượt quá 24; điểm trung bình học kỳ đạt dưới 0,80 kỳ đầu, dưới 1,00 kỳ sau; điểm trung bình tích lũy đạt dưới 1,20 (năm 1), dưới 1,40 (năm 2), dưới 1,60 (năm 3), dưới 1,80 (năm sau)."
+  },
+  {
+    "question": "Thang điểm chữ đánh giá học phần và cách quy đổi sang thang điểm 4 được quy định ra sao trong Thông tư 56/2026?",
+    "expected_answer": "Theo Điều 12 và Điều 13 Thông tư 56/2026/TT-BGDĐT, điểm học phần được xếp loại: A (từ 8.5 đến 10.0 quy đổi thành 4); B (từ 7.0 đến 8.49 quy đổi thành 3); C (từ 5.5 đến 6.99 quy đổi thành 2); D (từ 4.0 đến 5.49 quy đổi thành 1); F (dưới 4.0 quy đổi thành 0, không đạt).",
+    "expected_context": "Khoản 4 Điều 12 và khoản 2 Điều 13 Thông tư 56/2026/TT-BGDĐT: Loại đạt gồm A: từ 8,50 đến 10,0 quy đổi thành 4; B: từ 7,00 đến 8,49 quy đổi thành 3; C: từ 5,50 đến 6,99 quy đổi thành 2; D: từ 4,0 đến 5,49 quy đổi thành 1; F: dưới 4,00 quy đổi thành 0."
+  },
+  {
+    "question": "Điều kiện để sinh viên đại học được đăng ký học cùng lúc hai chương trình đào tạo là gì?",
+    "expected_answer": "Theo Điều 21 Thông tư 56/2026/TT-BGDĐT, sinh viên được đăng ký học chương trình thứ hai sớm nhất khi đã được xếp trình độ năm thứ hai của chương trình thứ nhất và đáp ứng: tích lũy tối thiểu 25% khối lượng học tập chuẩn và có điểm trung bình tích lũy loại khá trở lên (hoặc loại trung bình nhưng đáp ứng điều kiện trúng tuyển của chương trình thứ hai trong năm trúng tuyển).",
+    "expected_context": "Khoản 2 Điều 21 Thông tư 56/2026/TT-BGDĐT: Sinh viên được đăng ký học chương trình thứ hai sớm nhất khi đã được xếp trình độ năm thứ hai của chương trình thứ nhất. Đã tích lũy tối thiểu 25% khối lượng học tập chuẩn và đạt điểm trung bình tích lũy xếp loại khá trở lên... hoặc đạt loại trung bình và đáp ứng điều kiện trúng tuyển của chương trình thứ hai."
+  },
+  {
+    "question": "Sinh viên đang học đại học có được học trước các học phần trình độ thạc sĩ không theo Thông tư 53/2026?",
+    "expected_answer": "Có. Theo khoản 3 Điều 4 Thông tư 53/2026/TT-BGDĐT, người học đang theo học đại học đạt kết quả học tập từ loại khá trở lên được đăng ký học trước một số học phần của chương trình đào tạo thạc sĩ; khối lượng học tập được công nhận chuyển đổi không vượt quá 40% tổng khối lượng của chương trình thạc sĩ cùng nhóm ngành.",
+    "expected_context": "Khoản 3 Điều 4 Thông tư 53/2026/TT-BGDĐT: Người học đang theo học chương trình đào tạo trình độ đại học, đạt kết quả học tập từ loại khá hoặc tương đương trở lên được đăng ký học trước một số học phần của chương trình đào tạo trình độ thạc sĩ; khối lượng học tập được công nhận, chuyển đổi không vượt quá 40% tổng khối lượng học tập của chương trình đào tạo thạc sĩ cùng nhóm ngành."
+  },
+  {
+    "question": "Đối tượng và điều kiện dự tuyển đào tạo trình độ tiến sĩ được quy định như thế nào trong Thông tư 53/2026?",
+    "expected_answer": "Theo Điều 14 Thông tư 53/2026/TT-BGDĐT, người dự tuyển tiến sĩ phải đã tốt nghiệp thạc sĩ hoặc tốt nghiệp đại học hạng giỏi trở lên (bao gồm chương trình đào tạo chuyên sâu); trường hợp tốt nghiệp đại học hạng khá phải đáp ứng yêu cầu bổ sung về công trình nghiên cứu khoa học hoặc kinh nghiệm công tác theo quy định của cơ sở đào tạo.",
+    "expected_context": "Điều 14 Thông tư 53/2026/TT-BGDĐT: Đối tượng dự tuyển tiến sĩ: Đã tốt nghiệp hoặc đủ điều kiện công nhận tốt nghiệp trình độ thạc sĩ; Đã tốt nghiệp hoặc đủ điều kiện công nhận tốt nghiệp trình độ đại học hạng giỏi trở lên, bao gồm cả chương trình đào tạo chuyên sâu; trường hợp tốt nghiệp hạng khá phải đáp ứng yêu cầu bổ sung về công trình nghiên cứu khoa học hoặc kinh nghiệm công tác."
+  },
+  {
+    "question": "Tiêu chuẩn của người hướng dẫn nghiên cứu sinh tiến sĩ gồm những yêu cầu gì theo Thông tư 53/2026?",
+    "expected_answer": "Theo Điều 17 Thông tư 53/2026/TT-BGDĐT, người hướng dẫn phải có chức danh giáo sư, phó giáo sư hoặc có bằng tiến sĩ với ít nhất 02 năm kinh nghiệm giảng dạy/nghiên cứu; có công bố khoa học thuộc danh mục WoS hoặc Scopus, sách xuất bản hoặc bằng độc quyền sáng chế phù hợp với lĩnh vực nghiên cứu trong 05 năm tính đến thời điểm hướng dẫn.",
+    "expected_context": "Khoản 1 và khoản 2 Điều 17 Thông tư 53/2026/TT-BGDĐT: Người hướng dẫn phải đáp ứng tiêu chuẩn giảng viên giảng dạy tiến sĩ, có công bố khoa học thuộc danh mục Web of Science (WoS) hoặc Scopus hoặc sách xuất bản hoặc bằng độc quyền sáng chế... trong 05 năm tính đến thời điểm hướng dẫn nghiên cứu sinh. Giảng viên chưa có chức danh GS/PGS phải có ít nhất 02 năm kinh nghiệm giảng dạy hoặc nghiên cứu khoa học."
+  },
+  {
+    "question": "Yêu cầu về công bố khoa học trước khi bảo vệ luận án tiến sĩ tại đơn vị chuyên môn được quy định ra sao trong Thông tư 53/2026?",
+    "expected_answer": "Theo khoản 5 Điều 21 Thông tư 53/2026/TT-BGDĐT, nghiên cứu sinh phải là tác giả đứng tên đầu hoặc tác giả liên hệ của ít nhất một công bố khoa học thuộc danh mục WoS/Scopus, chương sách tham khảo quốc tế uy tín, hoặc bài báo đăng trên tạp chí khoa học quốc gia loại I của Bộ KH&CN, hoặc bằng độc quyền sáng chế có liên quan trực tiếp đến đề tài luận án.",
+    "expected_context": "Khoản 5 Điều 21 Thông tư 53/2026/TT-BGDĐT: Công bố khoa học liên quan trực tiếp đến nội dung nghiên cứu của luận án... Nghiên cứu sinh là tác giả đứng tên đầu hoặc tác giả liên hệ của một (01) hoặc một số công bố khoa học: bài báo khoa học thuộc danh mục WoS hoặc Scopus; chương sách tham khảo quốc tế; bài báo tạp chí khoa học quốc gia loại I; bằng độc quyền sáng chế."
+  },
+  {
+    "question": "Giảng viên của cơ sở giáo dục đại học nước ngoài phải tham gia giảng dạy bao nhiêu phần trăm trong chương trình liên kết đào tạo theo Thông tư 07/2025?",
+    "expected_answer": "Theo khoản 5 Điều 4 Thông tư 07/2025/TT-BGDĐT, giảng viên đang giảng dạy chương trình đào tạo tương ứng của cơ sở giáo dục đại học nước ngoài chủ trì và chịu trách nhiệm tổ chức giảng dạy không ít hơn 25% tổng khối lượng của chương trình liên kết đào tạo.",
+    "expected_context": "Khoản 5 Điều 4 Thông tư 07/2025/TT-BGDĐT: Giảng viên đang giảng dạy chương trình đào tạo tương ứng của cơ sở giáo dục đại học nước ngoài chủ trì và chịu trách nhiệm tổ chức giảng dạy không ít hơn 25% tổng khối lượng của chương trình liên kết đào tạo."
+  },
+  {
+    "question": "Tỷ lệ đào tạo trực tuyến tối đa được phép áp dụng trong liên kết đào tạo trực tiếp với nước ngoài là bao nhiêu theo Thông tư 07/2025?",
+    "expected_answer": "Theo khoản 1 Điều 2 Thông tư 07/2025/TT-BGDĐT, liên kết đào tạo trực tiếp được triển khai tối đa 30% tổng khối lượng của chương trình đào tạo thực hiện thông qua hệ thống đào tạo trực tuyến.",
+    "expected_context": "Khoản 1 Điều 2 Thông tư 07/2025/TT-BGDĐT: Liên kết đào tạo trực tiếp được triển khai tối đa 30% tổng khối lượng của chương trình đào tạo thực hiện thông qua hệ thống đào tạo trực tuyến."
+  },
+  {
+    "question": "Cơ sở giáo dục đại học được tự chủ những quyền hạn gì theo Luật Giáo dục đại học số 125/2025/QH15?",
+    "expected_answer": "Theo khoản 1 Điều 14 Luật số 125/2025/QH15, cơ sở giáo dục đại học được tự chủ: xác định chỉ tiêu và phương thức tuyển sinh, tổ chức đào tạo, cấp văn bằng; tổ chức NCKH, hợp tác quốc tế, khai thác sở hữu trí tuệ; quản lý thu chi tài chính, đầu tư phát triển; tuyển dụng giảng viên và các nhà khoa học uy tín trong và ngoài nước (trừ các trường thuộc Bộ Quốc phòng, Bộ Công an).",
+    "expected_context": "Khoản 1 Điều 14 Luật Giáo dục đại học số 125/2025/QH15 quy định quyền tự chủ: Xác định số lượng tuyển sinh, phương thức tuyển sinh, tổ chức đào tạo, liên kết đào tạo, cấp văn bằng; Tổ chức hoạt động nghiên cứu khoa học, phát triển công nghệ; Thu chi tài chính, quản lý tài sản, đầu tư; Tuyển dụng nhà khoa học uy tín trong và ngoài nước."
+  },
+  {
+    "question": "Các hành vi gian lận thi cử và vi phạm liêm chính học thuật nào có thể bị xử lý kỷ luật nghiêm trọng theo Thông tư 56/2026?",
+    "expected_answer": "Theo Điều 24 Thông tư 56/2026/TT-BGDĐT, các hành vi vi phạm nghiêm trọng gồm: nhờ người khác thi hộ hoặc đi thi hộ; sử dụng trái phép trí tuệ nhân tạo (AI), công cụ số để gian lận; mua bán bài tập, đồ án, khóa luận tốt nghiệp; can thiệp trái phép vào hệ thống LMS hoặc hệ thống điểm; sử dụng hồ sơ, văn bằng, chứng chỉ giả mạo để làm điều kiện đầu vào hoặc đầu ra.",
+    "expected_context": "Điều 24 Thông tư 56/2026/TT-BGDĐT quy định các nhóm hành vi vi phạm: Nhờ người khác thi hộ hoặc đi thi hộ, sử dụng trái phép trí tuệ nhân tạo (AI), công cụ số để gian lận, mua bán bài tập, đồ án, khóa luận tốt nghiệp, can thiệp trái phép vào LMS hoặc hệ thống điểm; sử dụng hồ sơ và văn bằng giả, chứng chỉ giả để làm điều kiện trúng tuyển hoặc tốt nghiệp."
+  },
+  {
+    "question": "Khối lượng học tập tối thiểu và các nhóm kiến thức bắt buộc thuộc thành phần cốt lõi ngành của Chuẩn CTĐT lĩnh vực Pháp luật trình độ đại học là bao nhiêu theo Quyết định 678/QĐ-BGDĐT?",
+    "expected_answer": "Theo Quyết định số 678/QĐ-BGDĐT, CTĐT lĩnh vực Pháp luật trình độ đại học có khối lượng học tập tối thiểu 120 tín chỉ; trong đó cơ sở ngành bắt buộc tối thiểu 16 tín chỉ, cốt lõi ngành bắt buộc tối thiểu 44 tín chỉ gồm 05 nhóm chính: (i) hiến pháp, pháp luật hành chính; (ii) pháp luật hình sự, tố tụng hình sự; (iii) pháp luật dân sự, tố tụng dân sự; (iv) pháp luật kinh tế; (v) pháp luật quốc tế.",
+    "expected_context": "Mục 2.4 và 2.5.1 Quyết định 678/QĐ-BGDĐT: Chương trình đào tạo lĩnh vực Pháp luật trình độ đại học có khối lượng học tập tối thiểu 120 tín chỉ... Kiến thức bắt buộc thuộc thành phần cơ sở ngành có khối lượng tối thiểu 16 tín chỉ... Kiến thức bắt buộc thuộc thành phần cốt lõi ngành có khối lượng tối thiểu 44 tín chỉ, cung cấp các kiến thức thực tiễn cơ bản, kiến thức lý thuyết toàn diện, hệ thống, gồm 05 (năm) nhóm chính: (i) hiến pháp, pháp luật hành chính; (ii) pháp luật hình sự, tố tụng hình sự; (iii) pháp luật dân sự, tố tụng dân sự; (iv) pháp luật kinh tế; (v) pháp luật quốc tế."
+  },
+  {
+    "question": "Khối lượng học tập tối thiểu đối với chương trình đào tạo kỹ sư tài năng và thạc sĩ tài năng lĩnh vực STEM được quy định như thế nào theo Quyết định 2627/QĐ-BGDĐT?",
+    "expected_answer": "Theo Mục 2.4 Quyết định 2627/QĐ-BGDĐT: Chương trình đào tạo kỹ sư tài năng có khối lượng học tập tối thiểu 180 tín chỉ (không bao gồm GDTC, GDQP-AN); Chương trình đào tạo thạc sĩ tài năng tối thiểu 60 tín chỉ đối với người đã tốt nghiệp đại học cùng nhóm ngành; Chương trình đào tạo thạc sĩ tích hợp cử nhân tài năng tối thiểu 180 tín chỉ (trong đó tối thiểu 120 tín chỉ cử nhân và tối thiểu 60 tín chỉ thạc sĩ).",
+    "expected_context": "Mục 2.4 Quyết định 2627/QĐ-BGDĐT: Khối lượng học tập: Chương trình đào tạo kỹ sư tài năng có khối lượng học tập tối thiểu 180 tín chỉ, không bao gồm khối lượng các học phần giáo dục thể chất, giáo dục quốc phòng; Chương trình đào tạo thạc sĩ tài năng có khối lượng học tập tối thiểu 60 tín chỉ đối với người đã tốt nghiệp đại học thuộc cùng nhóm ngành; Chương trình đào tạo thạc sĩ tích hợp cử nhân tài năng có khối lượng học tập tối thiểu 180 tín chỉ, trong đó tối thiểu 120 tín chỉ trình độ cử nhân và tối thiểu 60 tín chỉ trình độ thạc sĩ."
+  },
+  {
+    "question": "Quyết định 2101/QĐ-BGDĐT sửa đổi yêu cầu tuyển sinh đầu vào từ điểm thi tốt nghiệp THPT đối với CTĐT về vi mạch bán dẫn như thế nào?",
+    "expected_answer": "Theo Quyết định số 2101/QĐ-BGDĐT sửa đổi Mục 2.3.1, tổ hợp xét tuyển dựa trên kết quả thi tốt nghiệp THPT bắt buộc có môn Toán và ít nhất một môn thuộc Khoa học tự nhiên phù hợp CTĐT vi mạch bán dẫn; đồng thời thí sinh phải thuộc nhóm 25% thí sinh có điểm tổ hợp xét tuyển cao nhất toàn quốc và thuộc nhóm 20% thí sinh có điểm môn Toán cao nhất toàn quốc (theo số liệu Bộ GDĐT công bố hằng năm).",
+    "expected_context": "Điều 1 Quyết định 2101/QĐ-BGDĐT: Sửa đổi Mục 2.3.1: Tổ hợp môn xét tuyển dựa trên kết quả thi tốt nghiệp THPT... Có môn Toán; Có ít nhất một môn thuộc Khoa học tự nhiên phù hợp CTĐT về vi mạch bán dẫn. Thuộc nhóm 25% thí sinh có điểm của tổ hợp môn xét tuyển cao nhất toàn quốc và thuộc nhóm 20% thí sinh có điểm môn Toán cao nhất toàn quốc (theo số liệu do Bộ GDĐT công bố hằng năm)."
+  },
+  {
+    "question": "Khối lượng học tập tối thiểu của chương trình đào tạo chuyên sâu đặc thù cấp bằng Kỹ sư hoặc Kiến trúc sư khối ngành Kiến trúc - Xây dựng theo Quyết định 1169/QĐ-BGDĐT là bao nhiêu tín chỉ?",
+    "expected_answer": "Theo Mục 2.4.2 Quyết định 1169/QĐ-BGDĐT, chương trình đào tạo chuyên sâu đặc thù trình độ đại học cấp bằng Kỹ sư hoặc Kiến trúc sư có khối lượng học tập tối thiểu là 150 tín chỉ (chưa bao gồm GDTC và GDQP-AN), trong đó: giáo dục đại cương tối thiểu 30 tín chỉ; cơ sở ngành tối thiểu 25 tín chỉ; cốt lõi ngành tối thiểu 25 tín chỉ; chuyên sâu đặc thù tối thiểu 8 tín chỉ; thực hành, trải nghiệm và tốt nghiệp tối thiểu 32 tín chỉ (đồ án chuyên sâu đặc thù tối thiểu 4 tín chỉ, tốt nghiệp tối thiểu 18 tín chỉ).",
+    "expected_context": "Mục 2.4.2 Quyết định 1169/QĐ-BGDĐT: Chương trình đào tạo chuyên sâu đặc thù trình độ đại học cấp bằng Kỹ sư hoặc Kiến trúc sư có khối lượng học tập tối thiểu là 150 tín chỉ, không bao gồm GDTC và GDQP-AN... giáo dục đại cương tối thiểu 30 tín chỉ; cơ sở ngành tối thiểu 25 tín chỉ; cốt lõi ngành tối thiểu 25 tín chỉ; chuyên sâu đặc thù tối thiểu 8 tín chỉ; thực hành, trải nghiệm và tốt nghiệp tối thiểu 32 tín chỉ, trong đó đồ án chuyên sâu đặc thù tối thiểu 4 tín chỉ, tốt nghiệp có khối lượng tối thiểu 18 tín chỉ."
+  },
+  {
+    "question": "Tỷ lệ và khối lượng học tập bắt buộc của thành phần cơ sở ngành và cốt lõi ngành trong CTĐT lĩnh vực Môi trường và bảo vệ môi trường theo Quyết định 2333/QĐ-BGDĐT là bao nhiêu?",
+    "expected_answer": "Theo điểm b Mục 2.5 Quyết định 2333/QĐ-BGDĐT, thành phần cơ sở ngành và cốt lõi ngành chiếm tối thiểu 70% tín chỉ của chương trình đào tạo; trong đó khối lượng bắt buộc cơ sở ngành tối thiểu 9 tín chỉ, khối lượng bắt buộc cốt lõi ngành tối thiểu 40 tín chỉ (khóa luận tốt nghiệp hoặc kiến thức thay thế tối thiểu là 10 tín chỉ), mỗi học phần bắt buộc thuộc thành phần cơ sở ngành và cốt lõi ngành tối thiểu 2 tín chỉ.",
+    "expected_context": "Điểm b Mục 2.5 Quyết định 2333/QĐ-BGDĐT: Thành phần cơ sở ngành và cốt lõi ngành chiếm tối thiểu 70% tín chỉ của chương trình đào tạo, khối lượng học tập bắt buộc thuộc thành phần cơ sở ngành tối thiểu 9 tín chỉ; khối lượng học tập bắt buộc thuộc thành phần cốt lõi ngành tối thiểu 40 tín chỉ, trong đó khóa luận tốt nghiệp hoặc kiến thức thay thế khóa luận tốt nghiệp có khối lượng tối thiểu là 10 tín chỉ. Lưu ý, mỗi học phần bắt buộc thuộc thành phần cơ sở ngành và cốt lõi ngành có khối lượng học tập tối thiểu 2 tín chỉ."
+  }
+]
