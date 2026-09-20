@@ -35,6 +35,10 @@ htmlcov/
 .env.*
 !.env.example
 
+# Vector DB & Local Storage
+chroma_db/
+*.sqlite3
+
 # Temp PDF conversion cache
 data/_tmp_pdf/
 
@@ -55,3 +59,4 @@ pageindex_pdfs/
 # OS
 .DS_Store
 Thumbs.db
+

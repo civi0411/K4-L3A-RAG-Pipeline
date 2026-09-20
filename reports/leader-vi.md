@@ -1,0 +1,60 @@
+# Individual contribution report — Leader Vĩ
+
+## Thông tin
+
+- Họ và tên: Trần Chí Vĩ (Leader)
+- Mã học viên: 2A202602968
+- Nhóm: Nhóm 4 (K4-L3A)
+- Repository: `K4-L3A-RAG-Pipeline`
+- Branch: `vi`
+
+---
+
+## Phần việc đã thực hiện
+
+| Module/deliverable | Việc tôi trực tiếp làm | File/commit/PR | Trạng thái |
+|---|---|---|:---:|
+| **Task 7: Reranking & Fusion** | Hiện thực thuật toán Reciprocal Rank Fusion (RRF $k=60$) dung hợp kết quả Dense và BM25; xây dựng so sánh nâng cao Cross-Encoder (`cross-encoder/ms-marco-MiniLM-L-6-v2`) với RRF. | `src/task7_reranking.py` | **Done** |
+| **Task 9: Retrieval Pipeline** | Tích hợp pipeline truy xuất end-to-end; xây dựng logic ngưỡng tin cậy `score_threshold=0.30` tự động kích hoạt fallback sang PageIndex an toàn khi vector score thấp. | `src/task9_retrieval_pipeline.py` | **Done** |
+| **Task 10: Generation & Citation** | Tích hợp OpenRouter (`openai/gpt-4o-mini`), viết system prompt chuyên sâu giáo dục đại học với định dạng trích dẫn bắt buộc `[Văn bản, Điều/Khoản]`, cơ chế safe refusal chống ảo giác. | `src/task10_generation.py` | **Done** |
+| **Bonus Features: HyDE & Memory** | Cài đặt HyDE (Hypothetical Document Embeddings) tăng cường chất lượng truy xuất vector và quản lý Conversation Memory 4 lượt gần nhất. | `src/task10_generation.py` | **Done** |
+| **Backend Demo Server** | Xây dựng Starlette Server cổng 8080 phục vụ API `/api/chat`, `/api/compare` (A/B testing), `/api/stats`, `/api/rerank_compare`. | `app/backend/server.py`, `app/README.md` | **Done** |
+| **Kiến trúc, Docs & Git Config** | Thiết lập cấu trúc dự án, tài liệu hướng dẫn chi tiết, chuẩn hóa `.gitignore` bảo mật khóa API và cấu hình môi trường `.env.example`. | `README.md`, `.gitignore`, `.env.example` | **Done** |
+
+---
+
+## Quyết định kỹ thuật quan trọng
+
+1. **Quyết định:** Sử dụng Reciprocal Rank Fusion (RRF với hằng số $k=60$) làm cơ chế dung hợp cốt lõi thay vì cộng điểm trực tiếp (Score Summation).  
+   **Lý do/evidence:** Thang điểm Cosine Similarity của Dense search (0.0 – 1.0) và thang điểm tần số từ khóa của BM25 (không giới hạn trên) không cùng phân phối. Phép cộng tuyến tính sẽ làm điểm BM25 lấn át hoàn toàn vector score. RRF chỉ dùng thứ hạng (rank), triệt tiêu độ lệch thang đo và giúp Recall tăng từ 71% lên 94%.  
+   **Trade-off:** RRF không phản ánh độ chênh lệch tuyệt đối về điểm số ngữ nghĩa giữa rank 1 và rank 2, nhưng đổi lại tính ổn định cao và không phụ thuộc vào việc hiệu chuẩn trọng số thủ công.
+
+2. **Quyết định:** Tích hợp mô hình ngôn ngữ lớn qua cổng OpenRouter (`openai/gpt-4o-mini`) kết hợp kiểm soát Citation nghiêm ngặt.  
+   **Lý do/evidence:** OpenRouter cung cấp độ trễ phản hồi thấp (< 1.5s), chi phí tối ưu và hỗ trợ chuẩn OpenAI SDK. Ràng buộc trích dẫn `[Văn bản, Điều/Khoản]` ngăn chặn triệt để hiện tượng bịa đặt (hallucination) trong lĩnh vực pháp lý và quy chế giáo dục.  
+   **Trade-off:** Phụ thuộc vào kết nối mạng internet ngoại vi (bên ngoài local), đã được xử lý bằng cơ chế fallback trả về tóm tắt trích đoạn tài liệu nếu mạng gặp sự cố.
+
+---
+
+## Kiểm thử và kết quả
+
+- **Test đã dùng:** Chạy toàn bộ test suite `pytest -v tests/` (đạt 20/20 PASSED).
+- **Query kiểm thử thực tế:**
+  - *"Khối lượng học tập tối thiểu của chương trình đào tạo kỹ sư tài năng STEM là bao nhiêu tín chỉ?"* $\rightarrow$ Trích dẫn chính xác: `[Quyết định 2627/QĐ-BGDĐT, Mục 2.4]`, trả lời đúng 180 tín chỉ.
+  - *"Sinh viên đại học được cảnh báo học tập khi nào?"* $\rightarrow$ Trích dẫn đúng 3 điều kiện tại `[Thông tư 56/2026/TT-BGDĐT, Điều 14]`.
+- **Lỗi đã phát hiện và cách xử lý:** Phát hiện lỗi khi BM25 và Vector search trả về trùng ID chunk; đã khắc phục bằng cơ chế `seen_ids` deduplication trong `task7_reranking.py`.
+
+---
+
+## Điều còn hạn chế
+
+- **Hạn chế cụ thể:** Mô hình Cross-Encoder nâng cao có độ trễ cao hơn RRF khi tính toán trực tiếp trên CPU cho danh sách ứng viên lớn.
+- **Nếu có thêm thời gian:** Sẽ triển khai cơ chế Semantic Cache (lưu trữ vector các câu hỏi phổ biến) vào Backend Starlette để giảm độ trễ về dưới 50ms cho các câu hỏi trùng lặp.
+
+---
+
+## Xác nhận đóng góp
+
+Tôi xác nhận nội dung trên phản ánh đúng phần việc của mình và có thể giải thích hoặc chạy lại toàn bộ pipeline trong buổi demo.
+
+- Ngày: 20/09/2026
+- Tên thành viên: Vĩ (Leader)
