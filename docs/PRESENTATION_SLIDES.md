@@ -129,3 +129,4 @@
 > *Đặc biệt, để phục vụ buổi bảo vệ hôm nay, em đã tích hợp trực tiếp tính năng **A/B Testing** trên giao diện. Khi em kích hoạt tab so sánh giữa Dense Search và Hybrid RRF, Thầy Cô có thể thấy rõ: với những câu truy vấn chứa từ khóa kỹ thuật hoặc mã thông tư, Dense thuần bị suy giảm điểm số, trong khi Hybrid RRF kết hợp BM25Plus đã kéo đúng văn bản cần tra cứu lên vị trí đầu tiên.*  
 > 
 > *Tiếp theo, em xin mời bạn Nhật trình bày các số liệu đo kiểm thực nghiệm bằng Ragas framework."*
+
