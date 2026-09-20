@@ -206,7 +206,7 @@ Toàn bộ báo cáo đóng góp cá nhân và báo cáo tổng kết của nhó
 - **Báo cáo tổng kết đồ án nhóm:** [`reports/GROUP_REPORT.md`](reports/GROUP_REPORT.md)
 - **Kết quả đánh giá RAGAS (A/B Test):** [`reports/RESULT.md`](reports/RESULT.md) (đồng bộ với [`group_project/evaluation/RESULT.md`](group_project/evaluation/RESULT.md))
 - **Báo cáo cá nhân thành viên:**
-  1. **Trần Chí Vĩ (Leader - 2A202602968):** [`reports/leader-vi.md`](reports/leader-vi.md)
+  1. **Trần Chí Vĩ (Leader - 2A202602968):** [`reports/2A202602968-vi.md`](reports/2A202602968-vi.md)
   2. **Nguyễn Phi Nhật (2A202602658):** [`reports/2A202602658-nhat.md`](reports/2A202602658-nhat.md)
   3. **Hoàng Minh Tuấn (2A202602758):** [`reports/2A202602758-tuan.md`](reports/2A202602758-tuan.md)
   4. **Nguyễn Nam Khánh (2A202602568):** [`reports/2A202602568-khanh.md`](reports/2A202602568-khanh.md)
