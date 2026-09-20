@@ -199,6 +199,16 @@ pytest -q
 
 ---
 
-## 8. Báo Cáo Đóng Góp Cá Nhân (Individual Report)
+## 8. Báo Cáo Đóng Góp Cá Nhân & Báo Cáo Nhóm
 
-Mỗi học viên sao chép template tại [`reports/INDIVIDUAL_REPORT.md`](reports/INDIVIDUAL_REPORT.md) thành file `reports/<student-id>-<short-name>.md` và điền đầy đủ thông tin đóng góp để hoàn thiện điểm số cá nhân theo quy định barem.
+Toàn bộ báo cáo đóng góp cá nhân và báo cáo tổng kết của nhóm được lưu trữ tại thư mục [`reports/`](reports/):
+
+- **Báo cáo tổng kết đồ án nhóm:** [`reports/GROUP_REPORT.md`](reports/GROUP_REPORT.md)
+- **Kết quả đánh giá RAGAS (A/B Test):** [`reports/RESULT.md`](reports/RESULT.md) (đồng bộ với [`group_project/evaluation/RESULT.md`](group_project/evaluation/RESULT.md))
+- **Báo cáo cá nhân thành viên:**
+  1. **Trần Chí Vĩ (Leader - 2A202602968):** [`reports/2A202602968-TranChiVi.md`](reports/2A202602968-TranChiVi.md) (và [`reports/leader-vi.md`](reports/leader-vi.md))
+  2. **Nguyễn Phi Nhật (2A202602658):** [`reports/2A202602658-NguyenPhiNhat.md`](reports/2A202602658-NguyenPhiNhat.md)
+  3. **Hoàng Minh Tuấn (2A202602758):** [`reports/2A202602758-HoangMinhTuan.md`](reports/2A202602758-HoangMinhTuan.md)
+  4. **Nguyễn Nam Khánh (2A202602568):** [`reports/2A202602568-NguyenNamKhanh.md`](reports/2A202602568-NguyenNamKhanh.md)
+- **Template báo cáo chuẩn:** [`reports/INDIVIDUAL_REPORT.md`](reports/INDIVIDUAL_REPORT.md)
+
