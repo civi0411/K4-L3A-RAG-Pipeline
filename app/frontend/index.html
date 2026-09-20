@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LexAI — Trợ lý Pháp luật Giáo dục Đại học</title>
+  <meta name="description" content="Hệ thống RAG tra cứu quy chế đào tạo đại học, chuẩn chương trình, tuyển sinh và pháp luật giáo dục đại học Việt Nam." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css" />
+</head>
+<body>
+
+<!-- ============================================================
+  APP SHELL — 3-column layout: sidebar | chat | dock
+  ============================================================ -->
+<div class="shell" id="appShell">
+
+  <!-- ── LEFT SIDEBAR ─────────────────────────────────────── -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-top">
+      <!-- Brand -->
+      <div class="brand">
+        <div class="brand-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+          </svg>
+        </div>
+        <span class="brand-name">LexAI</span>
+      </div>
+      <!-- New Chat -->
+      <button class="new-chat-btn" id="newChatBtn" title="Câu hỏi mới">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 5v14M5 12h14"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Topics nav -->
+    <nav class="topic-nav">
+      <p class="nav-label">Chủ đề pháp luật</p>
+      <a class="nav-item active" data-topic="all" href="#">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        Tất cả văn bản
+      </a>
+      <a class="nav-item" data-topic="chuong_trinh" href="#">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 13h6M9 17h4"/></svg>
+        Chương trình đào tạo
+      </a>
+      <a class="nav-item" data-topic="quy_che" href="#">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
+        Quy chế đại học
+      </a>
+      <a class="nav-item" data-topic="sau_dh" href="#">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        Sau đại học
+      </a>
+      <a class="nav-item" data-topic="quoc_te" href="#">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        Liên kết quốc tế
+      </a>
+    </nav>
+
+    <!-- History list -->
+    <div class="history-section">
+      <p class="nav-label">Lịch sử hội thoại</p>
+      <div class="history-list" id="historyList">
+        <!-- JS populated -->
+        <div class="history-empty" id="historyEmpty">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <span>Chưa có câu hỏi nào</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar footer: corpus stats -->
+    <div class="sidebar-footer">
+      <div class="corpus-badge" id="corpusBadge">
+        <span class="corpus-dot"></span>
+        <span id="statSidebar">Đang tải dữ liệu…</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ── MAIN CHAT ─────────────────────────────────────────── -->
+  <main class="chat-main" id="chatMain">
+
+    <!-- Top bar -->
+    <header class="topbar">
+      <button class="sidebar-toggle" id="sidebarToggle" title="Ẩn/hiện sidebar">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+      <div class="topbar-center">
+        <span class="topbar-title">Trợ lý Quy chế Giáo dục Đại học</span>
+        <span class="topbar-badge">SOTA Hybrid RAG · BGE-M3</span>
+      </div>
+      <div class="topbar-actions">
+        <button class="icon-btn" id="dockToggle" title="Mở/đóng Learning Dock">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M16 3v18M3 9h13M3 15h13"/></svg>
+        </button>
+        <button class="icon-btn" id="themeBtn" title="Chuyển sáng/tối">
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Messages area -->
+    <section class="messages-area" id="messagesArea">
+
+      <!-- Welcome screen -->
+      <div class="welcome" id="welcomeScreen">
+        <div class="welcome-glyph">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+          </svg>
+        </div>
+        <h1 class="welcome-heading">Xin chào, tôi có thể<br>giúp gì cho bạn?</h1>
+        <p class="welcome-sub">Hệ thống giải đáp quy chế đào tạo, chuẩn chương trình, tuyển sinh sau đại học<br>và pháp luật giáo dục đại học Việt Nam mới nhất.</p>
+
+        <div class="starter-grid">
+          <button class="starter-card" data-q="Khối lượng học tập tối thiểu đối với chương trình đào tạo đại học, thạc sĩ và tiến sĩ là bao nhiêu tín chỉ theo Thông tư 54/2026/TT-BGDĐT?">
+            <div class="starter-icon">📋</div>
+            <div class="starter-body">
+              <strong>Tín chỉ tối thiểu các bậc</strong>
+              <span>120 tín chỉ ĐH · 45 thạc sĩ · 90 tiến sĩ</span>
+            </div>
+          </button>
+          <button class="starter-card" data-q="Sinh viên đào tạo theo phương thức tín chỉ bị cảnh báo học tập và buộc thôi học khi nào theo Thông tư 56/2026/TT-BGDĐT?">
+            <div class="starter-icon">⚠️</div>
+            <div class="starter-body">
+              <strong>Cảnh báo học vụ & thôi học</strong>
+              <span>Điều kiện ĐTB tích lũy, nợ tín chỉ, quy trình</span>
+            </div>
+          </button>
+          <button class="starter-card" data-q="Nghiên cứu sinh tiến sĩ cần đáp ứng những tiêu chuẩn gì về công bố khoa học (WoS/Scopus) trước khi bảo vệ luận án theo Thông tư 53/2026/TT-BGDĐT?">
+            <div class="starter-icon">🔬</div>
+            <div class="starter-body">
+              <strong>Tiêu chuẩn NCS trước bảo vệ</strong>
+              <span>Công bố WoS/Scopus, phản biện độc lập</span>
+            </div>
+          </button>
+          <button class="starter-card" data-q="Điều kiện để cơ sở giáo dục đại học Việt Nam liên kết đào tạo với trường nước ngoài trình độ thạc sĩ theo Thông tư 07/2025/TT-BGDĐT?">
+            <div class="starter-icon">🌏</div>
+            <div class="starter-body">
+              <strong>Liên kết đào tạo quốc tế</strong>
+              <span>Giảng viên nước ngoài, tỷ lệ trực tuyến, kiểm định</span>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Messages will be appended here by JS -->
+
+    </section>
+
+    <!-- Input bar -->
+    <footer class="input-bar">
+      <!-- Config chips -->
+      <div class="config-chips">
+        <label class="chip" title="HyDE: sinh văn bản giả định để cải thiện vector search">
+          <input type="checkbox" id="chkHyde" checked />
+          <span class="chip-icon">⚡</span> HyDE
+        </label>
+        <label class="chip" title="Ghi nhớ ngữ cảnh 4 lượt hội thoại gần nhất">
+          <input type="checkbox" id="chkMemory" checked />
+          <span class="chip-icon">🧠</span> Memory
+        </label>
+        <label class="chip" title="Kết hợp Dense + BM25 với RRF reranking">
+          <input type="checkbox" id="chkHybrid" checked />
+          <span class="chip-icon">🔀</span> Hybrid RRF
+        </label>
+        <label class="chip" title="Tự động chạy đối chiếu A/B sau mỗi câu hỏi">
+          <input type="checkbox" id="chkCompare" />
+          <span class="chip-icon">⚖️</span> A/B Test
+        </label>
+        <div class="chip-divider"></div>
+        <label class="chip chip-num" title="Số chunks tối đa truy vấn">
+          <span class="chip-icon">K=</span>
+          <input type="number" id="topKInput" value="5" min="1" max="10" class="num-input"/>
+        </label>
+      </div>
+
+      <form class="input-form" id="chatForm">
+        <div class="textarea-wrapper">
+          <textarea
+            id="chatInput"
+            class="chat-textarea"
+            placeholder="Nhập câu hỏi về quy chế đào tạo, pháp luật giáo dục đại học…"
+            rows="1"
+            autocomplete="off"
+          ></textarea>
+          <button type="submit" class="send-btn" id="sendBtn" disabled>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+          </button>
+        </div>
+      </form>
+      <p class="input-disclaimer">LexAI chỉ trích dẫn văn bản pháp quy chính thức trong corpus. Xác minh với nguồn gốc trước khi áp dụng.</p>
+    </footer>
+  </main>
+
+  <!-- ── RIGHT LEARNING DOCK ───────────────────────────────── -->
+  <aside class="dock" id="dock">
+
+    <div class="dock-header">
+      <span class="dock-title">Learning Dock</span>
+      <div class="dock-tab-bar">
+        <button class="dock-tab active" data-panel="sources">Nguồn</button>
+        <button class="dock-tab" data-panel="metrics">Metrics</button>
+        <button class="dock-tab" data-panel="compare">A/B</button>
+        <button class="dock-tab" data-panel="config">Cấu hình</button>
+      </div>
+    </div>
+
+    <!-- Panel: Sources -->
+    <div class="dock-panel active" id="panelSources">
+      <div class="panel-empty" id="sourcesEmpty">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10,9 9,9 8,9"/></svg>
+        <p>Gửi câu hỏi để xem<br>các nguồn trích dẫn</p>
+      </div>
+      <div class="sources-list" id="sourcesList" style="display:none"></div>
+    </div>
+
+    <!-- Panel: Metrics -->
+    <div class="dock-panel" id="panelMetrics">
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <span class="metric-label">Faithfulness</span>
+          <div class="metric-bar-wrap">
+            <div class="metric-bar"><div class="metric-fill" id="mFaith" style="width:95%"></div></div>
+            <span class="metric-val" id="mFaithVal">0.95</span>
+          </div>
+        </div>
+        <div class="metric-card">
+          <span class="metric-label">Answer Relevance</span>
+          <div class="metric-bar-wrap">
+            <div class="metric-bar"><div class="metric-fill" id="mRelev" style="width:93%"></div></div>
+            <span class="metric-val" id="mRelevVal">0.93</span>
+          </div>
+        </div>
+        <div class="metric-card">
+          <span class="metric-label">Context Recall</span>
+          <div class="metric-bar-wrap">
+            <div class="metric-bar"><div class="metric-fill" id="mRecall" style="width:94%"></div></div>
+            <span class="metric-val" id="mRecallVal">0.94</span>
+          </div>
+        </div>
+        <div class="metric-card">
+          <span class="metric-label">Context Precision</span>
+          <div class="metric-bar-wrap">
+            <div class="metric-bar"><div class="metric-fill" id="mPrec" style="width:91%"></div></div>
+            <span class="metric-val" id="mPrecVal">0.91</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="latency-row">
+        <div class="lat-item">
+          <span class="lat-label">Retrieval</span>
+          <span class="lat-val" id="latRetrieval">—</span>
+        </div>
+        <div class="lat-item">
+          <span class="lat-label">Total</span>
+          <span class="lat-val" id="latTotal">—</span>
+        </div>
+        <div class="lat-item">
+          <span class="lat-label">Phương thức</span>
+          <span class="lat-val" id="latMethod">—</span>
+        </div>
+      </div>
+
+      <div class="corpus-stats-block">
+        <p class="block-label">Corpus hiện tại</p>
+        <div class="corpus-row"><span>Văn bản pháp luật</span><b id="statLegal">—</b></div>
+        <div class="corpus-row"><span>Bài báo phân tích</span><b id="statNews">—</b></div>
+        <div class="corpus-row"><span>Tổng chunks</span><b id="statChunks">—</b></div>
+        <div class="corpus-row"><span>Embedding</span><b>BAAI/bge-m3</b></div>
+        <div class="corpus-row"><span>Fusion</span><b>RRF k=60</b></div>
+      </div>
+
+      <div class="hyde-trace" id="hydeTrace" style="display:none">
+        <p class="block-label">HyDE Document</p>
+        <div class="hyde-content" id="hydeContent"></div>
+      </div>
+    </div>
+
+    <!-- Panel: A/B Compare -->
+    <div class="dock-panel" id="panelCompare">
+      <div class="ab-idle" id="abIdle">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg>
+        <p>Bật checkbox <strong>A/B Test</strong> trong thanh nhập,<br>hoặc nhấn nút bên dưới.</p>
+        <button class="run-ab-btn" id="runAbBtn">Chạy so sánh A/B</button>
+      </div>
+      <div class="ab-result" id="abResult" style="display:none">
+        <div class="ab-col a">
+          <div class="ab-col-head a">
+            <span>Config A</span>
+            <span class="ab-name" id="abNameA">Dense-only</span>
+          </div>
+          <div class="ab-lat">⏱ <span id="abLatA">—</span></div>
+          <div class="ab-items" id="abItemsA"></div>
+        </div>
+        <div class="ab-col b">
+          <div class="ab-col-head b">
+            <span>Config B</span>
+            <span class="ab-name" id="abNameB">Hybrid RRF</span>
+          </div>
+          <div class="ab-lat">⏱ <span id="abLatB">—</span></div>
+          <div class="ab-items" id="abItemsB"></div>
+        </div>
+      </div>
+      <div class="ragas-table" id="ragasTable" style="display:none">
+        <p class="block-label">Ragas Benchmarks (Golden Dataset)</p>
+        <table>
+          <thead><tr><th>Metric</th><th>A</th><th>B</th><th>Δ</th></tr></thead>
+          <tbody id="ragasTbody"></tbody>
+        </table>
+        <div class="ab-analysis" id="abAnalysis"></div>
+      </div>
+    </div>
+
+    <!-- Panel: Config -->
+    <div class="dock-panel" id="panelConfig">
+      <div class="config-block">
+        <label class="cfg-label">Số chunks top-k
+          <span class="cfg-val" id="cfgTopKVal">5</span>
+        </label>
+        <input type="range" id="cfgTopK" min="1" max="10" value="5" class="cfg-slider"/>
+      </div>
+      <div class="config-block">
+        <label class="cfg-label">Fallback threshold
+          <span class="cfg-val" id="cfgThreshVal">0.30</span>
+        </label>
+        <input type="range" id="cfgThresh" min="0.0" max="1.0" step="0.05" value="0.30" class="cfg-slider"/>
+      </div>
+      <div class="config-block">
+        <p class="cfg-label">Tính năng nâng cao</p>
+        <div class="cfg-toggles">
+          <label class="toggle-row">
+            <span>HyDE Query Expansion <span class="bonus-chip">+3đ Bonus</span></span>
+            <div class="toggle" id="cfgHyde">
+              <input type="checkbox" checked id="cfgHydeCheck" />
+              <span class="slider"></span>
+            </div>
+          </label>
+          <label class="toggle-row">
+            <span>Conversation Memory <span class="bonus-chip">+2đ Bonus</span></span>
+            <div class="toggle" id="cfgMemory">
+              <input type="checkbox" checked id="cfgMemoryCheck" />
+              <span class="slider"></span>
+            </div>
+          </label>
+          <label class="toggle-row">
+            <span>Hybrid RRF Fusion</span>
+            <div class="toggle">
+              <input type="checkbox" checked id="cfgHybridCheck" />
+              <span class="slider"></span>
+            </div>
+          </label>
+        </div>
+      </div>
+      <div class="config-block">
+        <p class="cfg-label">Pipeline mode</p>
+        <div class="mode-pills">
+          <button class="mode-pill active" data-mode="sota">SOTA</button>
+          <button class="mode-pill" data-mode="fast">Nhanh</button>
+          <button class="mode-pill" data-mode="debug">Debug</button>
+        </div>
+      </div>
+      <button class="danger-btn" id="clearBtn">Xoá toàn bộ lịch sử</button>
+    </div>
+
+  </aside>
+</div>
+
+<script src="/assets/app.js"></script>
+</body>
+</html>
