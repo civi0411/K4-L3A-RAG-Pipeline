@@ -1,58 +1,56 @@
 # Individual contribution report
 
-## Thông tin
+Mỗi thành viên copy template này thành:
 
-- Họ và tên: Nguyễn Nam Khánh
-- Mã học viên: 2A202602568
-- Nhóm: Nhóm 4 (K4-L3A)
-- Repository/branch: `khanh` (https://github.com/civi0411/K4-L3A-RAG-Pipeline/tree/khanh)
+```text
+reports/<student-id>-<short-name>.md
+```
+
+Giới hạn khuyến nghị: 1 trang, không chép lại README hoặc mô tả lý thuyết chung. Báo cáo không phải một bài pipeline cá nhân; mục đích là ghi nhận ownership và bằng chứng đóng góp trong sản phẩm nhóm.
 
 ---
+
+## Thông tin
+
+- Họ và tên:
+- Mã học viên:
+- Nhóm:
+- Repository/branch:
 
 ## Phần việc đã thực hiện
 
 | Module/deliverable | Việc tôi trực tiếp làm | File/commit/PR | Trạng thái |
-|---|---|---|:---:|
-| **Frontend Web UI (LexAI)** | Thiết kế toàn bộ giao diện Web 3 cột theo chuẩn thẩm mỹ Dark Academia (`sidebar` \| `chat` \| `dock`), hỗ trợ Dark/Light mode tokens, typography học thuật (Playfair Display, JetBrains Mono, Inter). | `app/frontend/index.html`, `app/frontend/assets/style.css` | **Done** |
-| **Client Interaction & State** | Hiện thực logic gọi API `/api/chat`, `/api/compare`, `/api/stats`; quản lý phiên hội thoại (Local Storage), auto-scroll, typing indicator và auto-resize input bar. | `app/frontend/assets/app.js` | **Done** |
-| **Citation & A/B Testing UI** | Xây dựng panel Citation Cards hiển thị trích dẫn nguồn kèm Score Bar và đoạn trích; thiết kế tab A/B Testing đối chứng trực quan Dense-only vs Hybrid RRF cùng bảng Ragas benchmarks phục vụ chấm điểm. | `app/frontend/index.html`, `app/frontend/assets/app.js` | **Done** |
-| **Frontend Documentation** | Soạn thảo tài liệu hướng dẫn khởi chạy, kiến trúc giao diện 3 cột và đặc tả Design Tokens. | `app/README.md` | **Done** |
-| **Slide Thuyết trình & Live Demo** | Soạn thảo bộ Slide báo cáo 6 phần và chuẩn bị kịch bản phân vai 10 phút thuyết trình chính + thao tác Live Demo các tình huống pháp lý trước hội đồng. | `docs/PRESENTATION_SLIDES.md` | **Done** |
+|---|---|---|---|
+| | | | Done / Partial / Blocked |
 
----
+Chỉ kê khai công việc có thể đối chiếu bằng file, commit, pull request, test hoặc kết quả evaluation.
 
 ## Quyết định kỹ thuật quan trọng
 
-1. **Quyết định:** Lựa chọn kiến trúc Vanilla HTML5/CSS3/JavaScript thuần thay vì dùng Streamlit mặc định hoặc các frontend framework nặng (React/Vue).  
-   **Lý do/evidence:** Streamlit bị hạn chế khả năng tùy biến layout phức tạp (đặc biệt là bố cục 3 cột đồng bộ với Dock trích dẫn cố định) và khó đạt chuẩn thẩm mỹ Dark Academia cao cấp. Vanilla JS cho kích thước bundle cực nhẹ (< 50KB), tốc độ render tức thì, không phụ thuộc vào `node_modules` hay build pipeline phức tạp, có thể host tĩnh hoặc serve trực tiếp từ bất kỳ backend HTTP nào.  
-   **Trade-off:** Phải tự tay quản lý DOM state và các tác vụ bất đồng bộ (Fetch API, stream handling, local cache) thay vì tận dụng data-binding tự động của modern frameworks.
+Mô tả tối đa hai quyết định mà bạn trực tiếp tham gia:
 
-2. **Quyết định:** Thiết kế Learning Dock bên phải dạng đa tab (Nguồn trích dẫn · Metrics · A/B Compare · Cấu hình) tách biệt khỏi luồng chat chính.  
-   **Lý do/evidence:** Đáp ứng trực tiếp yêu cầu của Khung điểm môn học (10đ hiển thị nguồn, 10đ A/B testing & phân tích lỗi, +2đ bonus UI citation highlighting). Việc tách riêng sang dock giúp người dùng vừa đọc được nội dung trả lời mạch lạc vừa đối chiếu được ngay văn bản căn cứ và điểm số tin cậy mà không bị rối mắt.  
-   **Trade-off:** Chiếm diện tích chiều ngang màn hình (320px), do đó đã cài đặt thêm nút Toggle Dock để thu gọn linh hoạt trên các màn hình có độ phân giải nhỏ.
+1. **Quyết định:**  
+   **Lý do/evidence:**  
+   **Trade-off:**
 
----
+2. **Quyết định:**  
+   **Lý do/evidence:**  
+   **Trade-off:**
 
 ## Kiểm thử và kết quả
 
-- **Test giao diện và tương thích:** Kiểm thử hiển thị chuẩn responsive trên các độ phân giải phổ biến (1920×1080, 1440×900, 1366×768) trên cả Chrome, Safari và Firefox. Kiểm tra tính mượt mà khi chuyển đổi Dark / Light mode và lưu trạng thái vào `localStorage`.
-- **Query kiểm thử tương tác thực tế:**
-  - *"Khối lượng học tập tối thiểu của chương trình đào tạo kỹ sư tài năng STEM là bao nhiêu tín chỉ?"* $\rightarrow$ UI render trích dẫn thẻ vàng nổi bật `[QĐ 2627/QĐ-BGDĐT]`, Dock tự động bung mở tab Citations với score bar 0.88.
-  - Test chế độ **A/B Compare**: Gửi câu hỏi phức tạp, Dock hiển thị bảng so sánh song song giữa Dense Search (miss từ khóa văn bản) và Hybrid RRF (trúng chính xác điều khoản).
-- **Lỗi đã phát hiện và cách xử lý:** Xử lý lỗi nhảy layout khi tin nhắn Markdown dài có bảng biểu hoặc trích đoạn code bằng cách thêm `overflow-x: auto` và format lại các block thẻ luật.
-
----
+- Test hoặc query tôi đã dùng:
+- Kết quả trước/sau nếu có:
+- Lỗi đã phát hiện và cách xử lý:
 
 ## Điều còn hạn chế
 
-- **Hạn chế cụ thể:** Chưa tích hợp tính năng xuất lịch sử cuộc trò chuyện kèm trích dẫn pháp lý ra định dạng PDF/Word có chữ ký số trực tiếp từ trình duyệt.
-- **Nếu có thêm thời gian:** Sẽ triển khai tính năng Deep Citation Highlighting — khi người dùng click vào một trích dẫn `[Thông tư ..., Điều ...]` trong câu trả lời, giao diện sẽ tự động cuộn và làm nổi bật (highlight vàng) chính xác câu văn đó trong nguyên văn tài liệu ở Dock bên phải.
-
----
+- Một hạn chế cụ thể của phần tôi làm:
+- Nếu có thêm thời gian, thay đổi đầu tiên tôi sẽ thực hiện:
 
 ## Xác nhận đóng góp
 
-Tôi xác nhận nội dung trên phản ánh đúng phần việc của mình và có thể giải thích hoặc trực tiếp thao tác live demo trong buổi bảo vệ trước hội đồng.
+Tôi xác nhận nội dung trên phản ánh đúng phần việc của mình và có thể giải thích hoặc chạy lại trong buổi demo.
 
-- Ngày: 20/09/2026
-- Tên thành viên: Nguyễn Nam Khánh
+- Ngày:
+- Tên thành viên:
